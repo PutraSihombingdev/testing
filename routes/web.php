@@ -6,6 +6,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoanCalculatorController;
 use App\Models\Task;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BmiController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,3 +25,8 @@ Route::post('/calculator', [CalculatorController::class, 'calculate']);
 // Loan
 Route::get('/loan', [LoanCalculatorController::class, 'index']);
 Route::post('/loan', [LoanCalculatorController::class, 'calculate']);
+
+
+Route::get('/bmi', [BmiController::class, 'index'])->name('bmi.form');
+Route::post('/bmi/calculate', [BmiController::class, 'calculate'])->name('bmi.calculate');
+
